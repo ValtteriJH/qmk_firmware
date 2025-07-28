@@ -30,4 +30,6 @@
 #define RGB_MATRIX_DEFAULT_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
 #define RGB_MATRIX_DEFAfULT_SPD 127 // Sets the default animation speed, if none has been set
 
+#define HOLD_ON_OTHER_KEY_PRESS
+
 #endif
