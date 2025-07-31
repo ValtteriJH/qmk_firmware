@@ -36,6 +36,7 @@ enum sofle_layers {
 // #define TG_CLMK TG(_CLMK)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+     // TODO a d ghost tap
 
 // _QWERTY from default
 [_BASE] = LAYOUT(
@@ -125,6 +126,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
    return update_tri_layer_state(state, _SYM, _NAV, _FUN);
 }
+
+
+// Still unmerged
+/*#ifdef KEY_CANCELLATION_ENABLE*/
+/*const key_cancellation_t PROGMEM key_cancellation_list[] = {*/
+/*    // on key down*/
+/*    //       |    key to be released*/
+/*    //       |     |*/
+/*    [0] = {KC_D, KC_A},*/
+/*    [1] = {KC_A, KC_D}*/
+/*};*/
+/*#endif*/
 
 #ifdef OLED_ENABLE
 
