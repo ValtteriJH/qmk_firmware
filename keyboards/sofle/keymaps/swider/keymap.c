@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_FUN] = LAYOUT(
   KC_LALT,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_O,                   KC_B, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,
   XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,             C(G(KC_LEFT)),KC_NO,KC_NO,C(G(KC_RGHT)),XXXXXXX, XXXXXXX,
+  XXXXXXX, KX_CAON,XXXXXXX, KX_CAOF, XXXXXXX,XXXXXXX,             C(G(KC_LEFT)),KC_NO,KC_NO,C(G(KC_RGHT)),XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,XXXXXXX,     RGB_TOG, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
 )
@@ -128,16 +128,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 
-// Still unmerged
-/*#ifdef KEY_CANCELLATION_ENABLE*/
-/*const key_cancellation_t PROGMEM key_cancellation_list[] = {*/
-/*    // on key down*/
-/*    //       |    key to be released*/
-/*    //       |     |*/
-/*    [0] = {KC_D, KC_A},*/
-/*    [1] = {KC_A, KC_D}*/
-/*};*/
-/*#endif*/
+#ifdef KEY_CANCELLATION_ENABLE
+const key_cancellation_t PROGMEM key_cancellation_list[] = {
+    // on key down
+    //       |    key to be released
+    //       |     |
+    [0] = {KC_D, KC_A},
+    [1] = {KC_A, KC_D}
+};
+#endif
 
 #ifdef OLED_ENABLE
 
@@ -149,8 +148,7 @@ static const char PROGMEM sofle_logo[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  0,  0,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 64, 63,255, 57,112, 16,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  3,  3,  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,126,255,207, 96, 56, 15,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
 };
 
-static const char PROGMEM qmk_logo[] = {
-    128,128,128,128,192,224,240,255,255,240,240,255,255,240,240,255,255,240,240,255,255,240,240,255,255,240,224,192,128,128,128,128,153,153,153,153,255,255,255,255,255,  1,  1,255,255,255,255,  1,  1,255,255,255,255,  1,  1,255,255,255,255,255,153,153,153,153,153,153,153,153,255,255,255,255,255,252,240,243,227,231,231,  0,  0,231,231,227,243,240,252,255,255,255,255,255,153,153,153,153,  1,  1,  1,  1,  3,  7, 15,255,255, 15, 15,255,255, 15, 15,255,255, 15, 15,255,255, 15, 15,255,255, 15,  7,  3,  1,  1,  1,  1,
+static const char PROGMEM qmk_logo[] = { 128,128,128,128,192,224,240,255,255,240,240,255,255,240,240,255,255,240,240,255,255,240,240,255,255,240,224,192,128,128,128,128,153,153,153,153,255,255,255,255,255,  1,  1,255,255,255,255,  1,  1,255,255,255,255,  1,  1,255,255,255,255,255,153,153,153,153,153,153,153,153,255,255,255,255,255,252,240,243,227,231,231,  0,  0,231,231,227,243,240,252,255,255,255,255,255,153,153,153,153,  1,  1,  1,  1,  3,  7, 15,255,255, 15, 15,255,255, 15, 15,255,255, 15, 15,255,255, 15, 15,255,255, 15,  7,  3,  1,  1,  1,  1,
 };
 
 static const char PROGMEM g_layer_qwrt[] = {
